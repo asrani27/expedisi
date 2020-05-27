@@ -9,7 +9,7 @@
             <div class="box-header with-border">
               <i class="fa fa-warning"></i>
 
-              <h3 class="box-title">SELAMAT DATANG DI APLIKASI EXPEDISI CV.AMEXPRESS BANJARMASIN</h3>
+              <h3 class="box-title">SELAMAT DATANG DI APLIKASI EXPEDISI CV.AMEXPRESS</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
