@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\V_pengiriman;
-use Carbon;
 use PDF;
-use App\Petugas;
+use Carbon;
 use App\Kantor;
+use App\Petugas;
 use App\V_petugas;
+use App\Pengiriman;
+use App\V_pengiriman;
 use App\DetailPengiriman;
+use Illuminate\Http\Request;
 
 class LaporanControll extends Controller
 {
@@ -43,9 +44,9 @@ class LaporanControll extends Controller
     $extglakhir = ($year."-".$month."-".$day)." 23:59:59";
             $no = rand(0,10000);
             $tgl = Carbon\Carbon::now()->format('d M Y');
-    	    $lap1 = V_pengiriman::where('asal_kc',$request->asal_kc)->whereBetween('created_at', array($extglmulai, $extglakhir))->get();
+    	    $lap1 = Pengiriman::where('asal_kc',$request->asal_kc)->whereBetween('created_at', array($extglmulai, $extglakhir))->get();
             //$pdf = PDF::loadView('laporan.pdf1', compact('lap1'));
-
+    //dd($lap1);
     return view('laporan.pdf1', compact('lap1'));
     //return $pdf->download($no.'lap1'.date("Y-m-D-H:m:s").'.pdf');
     

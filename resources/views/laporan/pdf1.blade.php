@@ -44,6 +44,7 @@
               <th class="tg-3wr7">Nama Penerima</th>
               <th class="tg-3wr7">Asal KC</th>
               <th class="tg-3wr7">Tujuan KC</th>
+              <th class="tg-3wr7">Detail Barang</th>
               <th class="tg-3wr7">Status</th>
 			  </tr>
             @php $no = 1; @endphp
@@ -56,6 +57,14 @@
                   <td>{{ $mp->nama_penerima }}</td>
                   <td>{{ $mp->asal_kc }}</td>
                   <td>{{ $mp->nama_kantor }}</td>
+                  <td>
+						<ul>
+							@foreach($mp->detailpengiriman as $detail)
+							<li>{{$detail->jenis_barang}} - {{$detail->jumlah}} Unit</li>
+							@endforeach
+						</ul>
+					 	 
+				  </td>
                   <td>{{ $mp->status }}</td>
                 </tr>
                 @endforeach
