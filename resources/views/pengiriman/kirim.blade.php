@@ -84,7 +84,7 @@
                <tr>
                     <td colspan="4">&nbsp;</td>
                     <td>Total</td>
-                    <td>Rp. <?php echo Cart::total(); ?></td>
+                    <td>Rp. <?php echo Cart::subtotal(); ?></td>
                 </tr>
             </tbody>
           </table>  
