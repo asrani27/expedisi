@@ -19,7 +19,7 @@
         <tr>
           <td width=100></td>
           <td align=center class="judul"><b><font size="5">
-            CV.AMEXPRESS BANJARMASIN<br /></font></b>
+            CV.AMEXPRESS <br /></font></b>
           
           </td>
           <td width=100></td>

@@ -57,16 +57,15 @@ class PengirimanControll extends Controller
 
      public function tambah(Request $request)
     {
-    	//dd($request->all());
-    	$br = Barang::find($request->barang_id);
-        Cart::add($br->id, $br->nama, $request->berat, 5000);
+        $br = Barang::find($request->barang_id);
+        $total_berat = $request->berat * $request->unit;
+        Cart::add($br->id, $br->nama, $total_berat, 5000, ['unit' => $request->unit]);
         return redirect('pengiriman');
     }
 
 
    public function deletepengiriman($rowId ,$id)
     {
-        //dd($request->all());
         $products = Cart::get($rowId);
         $baran = Barang::find($id);
         //$baran->stok = $baran->stok + $products->qty;
@@ -101,7 +100,8 @@ class PengirimanControll extends Controller
         foreach($products as $product){
          DetailPengiriman::insert([
              'jenis_barang'  => $product->name,
-             'jumlah'        => $product->qty,
+             'berat'         => $product->qty,
+             'jumlah'        => $product->options->unit,
              'harga'         => $product->price,
              'subtotal'      => $product->total,
              'pengiriman_id' => $sid,

@@ -18,19 +18,23 @@
             <h3 class="box-title">Informasi Barang</h3>
           </div>
             <div class="box-body">
-            <div class="form-group">
-                  <label>Barang</label>
-                  <select class="form-control" name="barang_id">
-                    @foreach ($barang as $bar)
-                    <option value="{{$bar->id}}">{{$bar->nama}}</option>
-                    @endforeach
-                    </select>
-            </div>
+              <div class="form-group">
+                    <label>Barang</label>
+                    <select class="form-control" name="barang_id">
+                      @foreach ($barang as $bar)
+                      <option value="{{$bar->id}}">{{$bar->nama}}</option>
+                      @endforeach
+                      </select>
+              </div>
               <div class="form-group">
                 <label>Berat /Kg</label>
                 <input type="text" class="form-control" name="berat" required>
               </div>
-                <button type="submit" class="btn btn-primary">tambah ke keranjang</button>
+              <div class="form-group">
+                <label>Jml Unit</label>
+                <input type="text" class="form-control" name="unit" value="1" required>
+              </div>
+                <button type="submit" class="btn btn-primary">Tambah</button>
             </div>
         </div>
       </form>
@@ -53,6 +57,7 @@
                 <tr>
                             <th style="width: 10px">No</th>
                             <th>Type Barang</th>
+                            <th>Berat</th>
                             <th>Jumlah</th>
                             <th>Harga</th>
                             <th>Subtotal</th>
@@ -66,7 +71,8 @@
                 <tr>
                   <td>{{ $no++ }}</td>
                   <td><?php echo $row->name; ?></td>
-                  <td><?php echo $row->qty; ?></td>
+                  <td><?php echo $row->qty; ?> Kg</td>
+                  <td><?php echo $row->options->unit; ?></td>
                   <td>Rp. <?php echo $row->price; ?></td>
                   <td>Rp. <?php echo $row->total; ?></td>
                   <td>
@@ -75,7 +81,7 @@
                 </tr>
               <?php endforeach;?>
                <tr>
-                    <td colspan="3">&nbsp;</td>
+                    <td colspan="4">&nbsp;</td>
                     <td>Total</td>
                     <td>Rp. <?php echo Cart::total(); ?></td>
                 </tr>
