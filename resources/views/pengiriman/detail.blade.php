@@ -25,7 +25,7 @@
                   <td>Asal</td><td>{{$p->asal_kc}}</td>
                 </tr>
                 <tr>
-                  <td>Tujuan</td><td>{{$p->tujuan->nama_kantor}}</td>
+                  <td>Tujuan</td><td>{{$p->tujuan->first()->nama_kantor}}</td>
                 </tr>
                 <tr>
                   <td>Tanggal Kirim</td><td>{{$p->created_at}}</td>
