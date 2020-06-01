@@ -67,6 +67,7 @@
 
             <tbody> 
               @php $no = 1; @endphp
+              
                         <?php foreach(Cart::content() as $row) :?>
                 <tr>
                   <td>{{ $no++ }}</td>
@@ -74,7 +75,7 @@
                   <td><?php echo $row->qty; ?> Kg</td>
                   <td><?php echo $row->options->unit; ?></td>
                   <td>Rp. <?php echo $row->price; ?></td>
-                  <td>Rp. <?php echo $row->total; ?></td>
+                  <td>Rp. <?php echo $row->subtotal; ?></td>
                   <td>
                     <a href={{ url("pengiriman/remove/{$row->rowId}/{$row->id}") }} class="btn btn-xs btn-danger">X</a>
                   </td>

@@ -59,6 +59,7 @@ class PengirimanControll extends Controller
     {
         $br = Barang::find($request->barang_id);
         $total_berat = $request->berat * $request->unit;
+        
         Cart::add($br->id, $br->nama, $total_berat, 5000, ['unit' => $request->unit]);
         return redirect('pengiriman');
     }
