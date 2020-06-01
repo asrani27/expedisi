@@ -184,7 +184,7 @@ class LaporanControll extends Controller
         $no = rand(0,10000);
         $tgl = Carbon\Carbon::now()->format('d M Y');
         //dd($request->nip);
-         $lap7 = V_pengiriman::where('asal_kc',$request->asal_kc)->get();
+         $lap7 = Pengiriman::where('asal_kc',$request->asal_kc)->get();
          return view('laporan.pdf7', compact('lap7'));
         // $pdf = PDF::loadView('laporan.pdf7', compact('lap7'));
         // return $pdf->download($no.'lap7'.date("Y-m-D-H:m:s").'.pdf');
