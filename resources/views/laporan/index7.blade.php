@@ -3,7 +3,7 @@
 @section('content')
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Laporan Data Pendapatan</h3>
+          <h3 class="box-title">Laporan Data Tarif Pengiriman</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -37,7 +37,7 @@
               <th>No</th>
               <th>Tanggal</th>
               <th>No Resi</th>
-              <th>Jumlah Pendapatan</th>
+              <th>Jumlah Tarif</th>
               <th >Asal KC</th>
               <th >Tujuan KC</th>
             </tr>
