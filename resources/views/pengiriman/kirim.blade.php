@@ -58,8 +58,8 @@
                             <th style="width: 10px">No</th>
                             <th>Type Barang</th>
                             <th>Berat</th>
-                            <th>Jumlah</th>
-                            <th>Harga</th>
+                            <th>Jumlah/Unit</th>
+                            <th>Harga/Kg</th>
                             <th>Subtotal</th>
                             <th style="width: 40px">Aksi</th>
                 </tr>
