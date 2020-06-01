@@ -104,7 +104,7 @@ class PengirimanControll extends Controller
              'berat'         => $product->qty,
              'jumlah'        => $product->options->unit,
              'harga'         => $product->price,
-             'subtotal'      => $product->total,
+             'subtotal'      => $product->subtotal,
              'pengiriman_id' => $sid,
          ]);
      		}
