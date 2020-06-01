@@ -72,7 +72,7 @@
                 <tr>
                   <td>{{ $no++ }}</td>
                   <td><?php echo $row->name; ?></td>
-                  <td><?php echo $row->qty; ?> Kg</td>
+                  <td><?php echo $row->qty / $row->options->unit; ?> Kg</td>
                   <td><?php echo $row->options->unit; ?></td>
                   <td>Rp. <?php echo $row->price; ?></td>
                   <td>Rp. <?php echo $row->subtotal; ?></td>
