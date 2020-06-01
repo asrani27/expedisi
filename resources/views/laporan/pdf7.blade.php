@@ -26,7 +26,7 @@
 				</tr>
 			</table>
 			<div style="font-family:Arial; font-size:12px;">
-				<center><h2>Laporan Data Pendapatan</h2></center>	
+				<center><h2>Laporan Data Tarif Pengiriman</h2></center>	
 			</div>
 
 			<table border="0">
@@ -40,7 +40,7 @@
               <th class="tg-3wr7">No</th>
               <th class="tg-3wr7">Tanggal</th>
               <th class="tg-3wr7">No Resi</th>
-              <th class="tg-3wr7">Jumlah Pendapatan</th>
+              <th class="tg-3wr7">Jumlah Tarif</th>
               <th  class="tg-3wr7">Asal KC</th>
               <th  class="tg-3wr7">Tujuan KC</th>
 			  </tr>

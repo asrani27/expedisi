@@ -96,9 +96,9 @@
                 <li><a href="{{ url('/laporan4') }}"><i class="fa fa-circle-o"></i>Lap. Pengirim</a></li>
                 <li><a href="{{ url('/laporan5') }}"><i class="fa fa-circle-o"></i>Lap. Penerima</a></li>
                 <li><a href="{{ url('/laporan6') }}"><i class="fa fa-circle-o"></i>Lap. Petugas</a></li>
-                <li><a href="{{ url('/laporan7') }}"><i class="fa fa-circle-o"></i>Lap. Pendapatan</a></li>
+                <li><a href="{{ url('/laporan7') }}"><i class="fa fa-circle-o"></i>Lap. Tarif Pengiriman</a></li>
                 <li><a href="{{ url('/laporan8') }}"><i class="fa fa-circle-o"></i>Cetak Invoice</a></li>
-                <li><a href="{{ url('/laporan9') }}"><i class="fa fa-circle-o"></i>Lap. Laba</a></li>
+                {{-- <li><a href="{{ url('/laporan9') }}"><i class="fa fa-circle-o"></i>Lap. Laba</a></li> --}}
               </ul>
           </li>
       <li>
