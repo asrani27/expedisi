@@ -22,10 +22,16 @@
                   <td>No Resi</td><td>{{$p->resi}}</td>
                 </tr>
                 <tr>
-                  <td>Tujuan</td><td>{{$p->nama_kantor}}</td>
+                  <td>Asal</td><td>{{$p->asal_kc}}</td>
+                </tr>
+                <tr>
+                  <td>Tujuan</td><td>{{$p->tujuan->nama_kantor}}</td>
                 </tr>
                 <tr>
                   <td>Tanggal Kirim</td><td>{{$p->created_at}}</td>
+                </tr>
+                <tr>
+                  <td>Total Biaya</td><td>{{$p->total}}</td>
                 </tr>
                
                 </table>
@@ -104,7 +110,7 @@
             <tr>
               <th>No</th>
               <th>Jenis Barang</th>
-              <th>Jumlah</th>
+              <th>Jumlah/Unit</th>
             </tr>
             </thead>
 

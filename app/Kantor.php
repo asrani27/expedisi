@@ -8,4 +8,8 @@ class Kantor extends Model
 {
     protected $table = 'kantor';
 
+    public function pengiriman()
+    {
+        return $this->belongsTo(Pengiriman::class, 'tujuan_id');
+    }
 }

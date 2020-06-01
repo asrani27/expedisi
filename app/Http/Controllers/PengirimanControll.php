@@ -79,7 +79,7 @@ class PengirimanControll extends Controller
     public function insert(Request $request)
     {
        $products = Cart::content();
-       $gt = (int)str_replace(',', '',Cart::total());
+       $gt = (int)str_replace(',', '',Cart::subtotal());
        
        $pj = new Pengiriman;
        $pj->resi            = $request->resi;
@@ -122,7 +122,7 @@ class PengirimanControll extends Controller
     {
     	//return 'test';
     	$dp = DetailPengiriman::where('pengiriman_id',$id)->get();
-    	$p = V_pengiriman::find($id);
+    	$p = Pengiriman::find($id);
     	//dd($dp);
          return view('pengiriman.detail',compact('dp','p'));
     }
