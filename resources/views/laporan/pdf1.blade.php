@@ -56,7 +56,7 @@
                   <td>{{ $mp->nama_pengirim }}</td>
                   <td>{{ $mp->nama_penerima }}</td>
                   <td>{{ $mp->asal_kc }}</td>
-                  <td>{{ $mp->nama_kantor }}</td>
+                  <td>{{ $mp->tujuan->first()->nama_kantor }}</td>
                   <td>
 						<ul>
 							@foreach($mp->detailpengiriman as $detail)
