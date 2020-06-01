@@ -53,7 +53,7 @@
                   <td>{{ $mp->resi }}</td>
                   <td alig="center">{{ format_uang($mp->total) }}</td>
                   <td>{{ $mp->asal_kc }}</td>
-                  <td>{{ $mp->tujuan->nama_kantor }}</td>
+                  <td>{{ $mp->tujuan->first()->nama_kantor }}</td>
                 </tr>
                 @endforeach
 			  </table>
