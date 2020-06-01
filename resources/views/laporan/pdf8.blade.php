@@ -44,8 +44,9 @@
         <tr>
           <th class="tg-3wr7">No<br></th>
           <th class="tg-3wr7">Jenis<br></th>
-          <th class="tg-3wr7">Berat<br></th>
-          <th class="tg-3wr7">Biaya<br></th>
+          <th class="tg-3wr7">Berat / Kg<br></th>
+          <th class="tg-3wr7">Unit<br></th>
+          <th class="tg-3wr7">Biaya / Kg<br></th>
           <th class="tg-3wr7">Subtotal<br></th>
         </tr>
               @php $no = 1; @endphp
@@ -53,6 +54,7 @@
         <tr>
           <td align="center">{{$no++}}</td>
           <td align="center">{{$sis->jenis_barang}}</td>
+          <td align="center">{{$sis->berat}}</td>
           <td align="center">{{$sis->jumlah}}</td>
           <td align="center">Rp. {{format_uang($sis->harga)}}</td>
           <td align="center">Rp. {{format_uang($sis->subtotal)}}</td>
