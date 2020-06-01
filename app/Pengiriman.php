@@ -15,6 +15,6 @@ class Pengiriman extends Model
 
     public function tujuan()
     {
-        return $this->hasMany(Kantor::class, 'tujuan_id');
+        return $this->hasMany(Kantor::class, 'id','tujuan_id');
     }
 }

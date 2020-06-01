@@ -10,6 +10,6 @@ class Kantor extends Model
 
     public function pengiriman()
     {
-        return $this->belongsTo(Pengiriman::class, 'tujuan_id');
+        return $this->belongsTo(Pengiriman::class, 'tujuan_id', 'id');
     }
 }
