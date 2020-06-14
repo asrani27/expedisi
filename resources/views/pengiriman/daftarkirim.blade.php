@@ -101,7 +101,7 @@
                 <input type="text" class="form-control" name="telp_penerima" value="{{ $data->telp_penerima }}" readonly>
               </div>
             <div class="box-footer">
-              <button type="#" class="btn btn-danger">Reset</button>
+              <a href="/pengiriman/reset/{{$data->id}}" class="btn btn-danger">Reset</a>
             </div>
             </div>
         </div>

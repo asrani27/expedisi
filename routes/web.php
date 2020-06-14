@@ -66,6 +66,7 @@ Route::get('/penerimaan', 'PengirimanControll@penerimaan');
 Route::get('/pengambilan', 'PengirimanControll@pengambilan');
 Route::get('/pengiriman/resi/{resi}', 'PengirimanControll@daftarkirim');
 Route::post('/pengiriman/insert', 'PengirimanControll@insert')->name('simpankirim');
+Route::get('/pengiriman/reset/{id}', 'PengirimanControll@reset');
 Route::post('/pengiriman/selesai', 'PengirimanControll@selesai')->name('selesai');
 Route::post('/pengiriman/tambahbarang', 'PengirimanControll@tambah')->name('tambahbarang');
 Route::get('/pengiriman/remove/{rowId}/{id}', 'PengirimanControll@deletepengiriman');

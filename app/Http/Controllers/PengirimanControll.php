@@ -26,6 +26,12 @@ class PengirimanControll extends Controller
         return view('pengiriman.kirim',compact('kantor'));
     }
 
+    public function reset($id)
+    {
+        $del = Pengiriman::find($id)->delete();
+        return redirect('/pengiriman');
+    }
+    
     public function kirim()
     {
         $d = Auth::user()->id;
