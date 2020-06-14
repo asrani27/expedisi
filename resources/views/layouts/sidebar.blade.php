@@ -63,6 +63,7 @@
         <ul class="treeview-menu">
             <li><a href="{{ url('/user') }}"><i class="fa fa-circle-o"></i>User</a></li>
             <li><a href="{{ url('/barang') }}"><i class="fa fa-circle-o"></i>Jenis Barang</a></li>
+            <li><a href="{{ url('/biaya') }}"><i class="fa fa-circle-o"></i>Biaya Kirim</a></li>
             <li><a href="{{ url('/jabatan') }}"><i class="fa fa-circle-o"></i>Jabatan</a></li>
             <li><a href="{{ url('/petugas') }}"><i class="fa fa-circle-o"></i>Petugas</a></li>
             <li><a href="{{ url('/kantor') }}"><i class="fa fa-circle-o"></i>Kantor Cabang</a></li>

@@ -202,7 +202,7 @@ class LaporanControll extends Controller
         $no = rand(0,10000);
         $tgl = Carbon\Carbon::now()->format('d M Y');
         
-        $lap8 = V_pengiriman::find($id);
+        $lap8 = Pengiriman::find($id);
         $detail = DetailPengiriman::where('pengiriman_id',$id)->get();
         return view('laporan.pdf8', compact('lap8','detail'));
     // $pdf = PDF::loadView('laporan.pdf8', compact('lap8','detail'));

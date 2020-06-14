@@ -26,6 +26,13 @@ Route::get('/barang/{id}/delete', 'BarangControll@delete');
 Route::get('/barang/{id}/edit', 'BarangControll@edit');
 Route::post('/barang/{id}/update', 'BarangControll@update')->name('editbar');
 
+Route::get('/biaya', 'BiayaController@index');
+Route::get('/biaya/create', 'BiayaController@create');
+Route::post('/biaya/insert', 'BiayaController@insert')->name('savebiaya');
+Route::get('/biaya/{id}/delete', 'BiayaController@delete');
+Route::get('/biaya/{id}/edit', 'BiayaController@edit');
+Route::post('/biaya/{id}/update', 'BiayaController@update')->name('editbiaya');
+
 Route::get('/jabatan', 'JabatanControll@index');
 Route::get('/jabatan/create', 'JabatanControll@create');
 Route::post('/jabatan/insert', 'JabatanControll@insert')->name('savejab');
@@ -57,7 +64,9 @@ Route::post('/kantor/{nis}/update', 'KantorControll@update')->name('editkantor')
 Route::get('/pengiriman', 'PengirimanControll@kirim');
 Route::get('/penerimaan', 'PengirimanControll@penerimaan');
 Route::get('/pengambilan', 'PengirimanControll@pengambilan');
+Route::get('/pengiriman/resi/{resi}', 'PengirimanControll@daftarkirim');
 Route::post('/pengiriman/insert', 'PengirimanControll@insert')->name('simpankirim');
+Route::post('/pengiriman/selesai', 'PengirimanControll@selesai')->name('selesai');
 Route::post('/pengiriman/tambahbarang', 'PengirimanControll@tambah')->name('tambahbarang');
 Route::get('/pengiriman/remove/{rowId}/{id}', 'PengirimanControll@deletepengiriman');
 Route::get('/pengiriman/daftar', 'PengirimanControll@daftarpengiriman');

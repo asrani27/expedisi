@@ -27,10 +27,16 @@
                 <input type="text" class="form-control" name="name" required>
               </div>
               <div class="form-group">
-                <label>Role Level</label>
+                <label>Hak Akses</label>
                 <select class="form-control" name="role_id" required>
                   @foreach ($role as $roles)
-                        <option value="{{$roles->id}}">{{$roles->display_name}}</option>
+                        <option value="{{$roles->id}}">
+                          @if($roles->display_name == 'Admin')
+                          {{$roles->display_name}}
+                          @else
+                          CS {{$roles->display_name}}
+                          @endif
+                        </option>
                   @endforeach
                       </select>
                </div>

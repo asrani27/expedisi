@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Pengiriman;
+use Auth;
+use Cart;
+use App\User;
+use App\Biaya;
 use App\Barang;
 use App\Kantor;
-use Cart;
-use App\DetailPengiriman;
+use App\Pengiriman;
 use App\V_pengiriman;
-use Auth;
-use App\User;
+use App\DetailPengiriman;
+use Illuminate\Http\Request;
 
 class PengirimanControll extends Controller
 {
@@ -60,8 +61,8 @@ class PengirimanControll extends Controller
         $br = Barang::find($request->barang_id);
         $total_berat = $request->berat * $request->unit;
         
-        Cart::add($br->id, $br->nama, $total_berat, 5000, ['unit' => $request->unit]);
-        return redirect('pengiriman');
+        Cart::add($br->id, $br->nama, $total_berat, $request->biaya, ['unit' => $request->unit]);
+        return back();
     }
 
 
@@ -78,38 +79,70 @@ class PengirimanControll extends Controller
     }
     public function insert(Request $request)
     {
+        //dd($request->all());
+       //$products = Cart::content();
+       //$gt = (int)str_replace(',', '',Cart::subtotal());
+       
+       $cekresi = Pengiriman::where('resi', $request->resi)->first();
+       if($cekresi == null)
+       {
+        $pj = new Pengiriman;
+        $pj->resi            = $request->resi;
+        $pj->tujuan_id       = $request->tujuan_id;
+        $pj->nama_pengirim   = $request->nama_pengirim;
+        $pj->alamat_pengirim = $request->alamat_pengirim;
+        $pj->telp_pengirim   = $request->telp_pengirim;
+        $pj->nama_penerima   = $request->nama_penerima;
+        $pj->alamat_penerima = $request->alamat_penerima;
+        $pj->telp_penerima   = $request->telp_penerima;
+        $pj->asal_kc         = $request->asal_kc;
+        $pj->status          = 'Dalam Pengiriman';
+        //$pj->total           = $gt;
+        $pj->save();
+       }
+        return redirect('/pengiriman/resi/'.$request->resi);
+    }
+
+    public function selesai(Request $req)
+    {
+
        $products = Cart::content();
        $gt = (int)str_replace(',', '',Cart::subtotal());
-       
-       $pj = new Pengiriman;
-       $pj->resi            = $request->resi;
-       $pj->tujuan_id       = $request->tujuan_id;
-       $pj->nama_pengirim   = $request->nama_pengirim;
-       $pj->alamat_pengirim = $request->alamat_pengirim;
-       $pj->telp_pengirim   = $request->telp_pengirim;
-       $pj->nama_penerima   = $request->nama_penerima;
-       $pj->alamat_penerima = $request->alamat_penerima;
-       $pj->telp_penerima   = $request->telp_penerima;
-       $pj->asal_kc         = $request->asal_kc;
-       $pj->status          = 'Dalam Pengiriman';
-       $pj->total           = $gt;
-       $pj->save();
-	   
-	   $id_pj = Pengiriman::orderBy('id','DESC')->first();
-       $sid = (int)$id_pj->id;
-       
-        foreach($products as $product){
-         DetailPengiriman::insert([
-             'jenis_barang'  => $product->name,
-             'berat'         => $product->qty,
-             'jumlah'        => $product->options->unit,
-             'harga'         => $product->price,
-             'subtotal'      => $product->subtotal,
-             'pengiriman_id' => $sid,
-         ]);
-     		}
-    		 Cart::destroy();
-         return redirect('/pengiriman/daftar')->with('response','Berhasil Di Simpan');
+
+       //Update Total Pengiriman 
+       $p = Pengiriman::where('resi', $req->resi)->first();
+       $p->total = $gt;
+       $p->save();
+
+       //Simpan Daftar Barang Yang Di Kirim
+       foreach($products as $product){
+             DetailPengiriman::insert([
+                 'jenis_barang'  => $product->name,
+                 'berat'         => $product->qty,
+                 'jumlah'        => $product->options->unit,
+                 'harga'         => $product->price,
+                 'subtotal'      => $product->subtotal,
+                 'pengiriman_id' => $p->id,
+             ]);
+         	}
+        Cart::destroy();
+        
+       return redirect('/pengiriman/daftar')->with('response','Berhasil Di Simpan');
+    }
+
+    public function daftarkirim($resi)
+    {
+        $data = Pengiriman::where('resi', $resi)->first();
+        $cekbiaya = Biaya::where('dari', $data->asal_kc)->where('ke', $data->tujuan->first()->nama_kantor)->first();
+        if($cekbiaya == null){
+             $biaya = 0;
+        }else{
+             $biaya = $cekbiaya->biaya;
+        }
+        
+        $barang = Barang::all();
+
+        return view('pengiriman.daftarkirim',compact('data','biaya','barang'));
     }
 
     public function daftarpengiriman()

@@ -29,14 +29,91 @@
         <center><h2>INVOICE RESI NO {{$lap8->resi}}</h2></center>  
       </div>
 
-      <table border="0">
+      <table border="1" width="100%" cellpadding="5" cellspacing="0">
       <tr>
-      <td width="50%">
-        Nama Pengirim : {{$lap8->nama_pengirim}}
+      <td width="40%">
+        <b>DETAIL TUJUAN </b> 
       </td>
-      <td width="50%">
-        Nama Penerima : {{$lap8->nama_penerima}}
+      <td width="30%">
+        <b>DETAIL PENGIRIM </b>
       </td>
+      <td width="30%">
+        <b>DETAIL PENERIMA </b>
+      </td>
+      </tr>
+      <tr>
+        <td>
+        <table>
+          <tr>
+            <td>Asal KC </td>
+            <td>:</td>
+            <td>{{$lap8->asal_kc}}</td>
+          </tr>
+          <tr>
+            <td>Tujuan</td>
+            <td>:</td>
+            <td>{{$lap8->tujuan->first()->nama_kantor}}</td>
+          </tr>
+          <tr>
+            <td>Tanggal</td>
+            <td>:</td>
+            <td>{{$lap8->created_at}}</td>
+          </tr>
+          <tr>
+            <td>No RESI</td>
+            <td>:</td>
+            <td>{{$lap8->resi}}</td>
+          </tr>
+        </table>
+        </td>
+        <td>
+        <table>
+          <tr>
+            <td>Nama Pengirim </td>
+            <td>:</td>
+            <td>{{$lap8->nama_pengirim}}</td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td>{{$lap8->alamat_pengirim}}</td>
+          </tr>
+          <tr>
+            <td>Telp</td>
+            <td>:</td>
+            <td>{{$lap8->telp_pengirim}}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        </td>
+        <td>
+        <table>
+          <tr>
+            <td>Nama Penerima </td>
+            <td>:</td>
+            <td>{{$lap8->nama_penerima}}</td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td>{{$lap8->alamat_penerima}}</td>
+          </tr>
+          <tr>
+            <td>Telp</td>
+            <td>:</td>
+            <td>{{$lap8->telp_penerima}}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        </td>
       </tr>
       </table><br />
       DETAIL BARANG YANG DI KIRIM
@@ -54,7 +131,7 @@
         <tr>
           <td align="center">{{$no++}}</td>
           <td align="center">{{$sis->jenis_barang}}</td>
-          <td align="center">{{$sis->berat}}</td>
+          <td align="center">{{$sis->berat / $sis->jumlah}}</td>
           <td align="center">{{$sis->jumlah}}</td>
           <td align="center">Rp. {{format_uang($sis->harga)}}</td>
           <td align="center">Rp. {{format_uang($sis->subtotal)}}</td>
