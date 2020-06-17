@@ -29,9 +29,4 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function siswa()
-    {
-        return $this->hasOne('App\Siswa');
-    }
-
 }

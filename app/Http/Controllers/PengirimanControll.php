@@ -8,6 +8,7 @@ use App\User;
 use App\Biaya;
 use App\Barang;
 use App\Kantor;
+use App\Tracking;
 use App\Pengiriman;
 use App\V_pengiriman;
 use App\DetailPengiriman;
@@ -28,10 +29,17 @@ class PengirimanControll extends Controller
 
     public function reset($id)
     {
-        $del = Pengiriman::find($id)->delete();
+        $del = Pengiriman::find($id);
+        $del_tracking = Tracking::where('resi',$del->resi)->get()->map(function($item){
+            $item->delete();
+            return $item;
+        });
+
+        $delete = $del->delete();
+
         return redirect('/pengiriman');
     }
-    
+
     public function kirim()
     {
         $d = Auth::user()->id;
@@ -84,11 +92,7 @@ class PengirimanControll extends Controller
         return back();
     }
     public function insert(Request $request)
-    {
-        //dd($request->all());
-       //$products = Cart::content();
-       //$gt = (int)str_replace(',', '',Cart::subtotal());
-       
+    {       
        $cekresi = Pengiriman::where('resi', $request->resi)->first();
        if($cekresi == null)
        {
@@ -103,8 +107,15 @@ class PengirimanControll extends Controller
         $pj->telp_penerima   = $request->telp_penerima;
         $pj->asal_kc         = $request->asal_kc;
         $pj->status          = 'Dalam Pengiriman';
-        //$pj->total           = $gt;
         $pj->save();
+
+        // Simpan Tracking
+        $track = new Tracking;
+        $track->resi    = $request->resi;
+        $track->asal_kc = $request->asal_kc;
+        $track->tujuan  = Kantor::find($request->tujuan_id)->nama_kantor;
+        $track->status  = 'Dalam Pengiriman';
+        $track->save();
        }
         return redirect('/pengiriman/resi/'.$request->resi);
     }
@@ -153,7 +164,11 @@ class PengirimanControll extends Controller
 
     public function daftarpengiriman()
     {
-    	$pengiriman = V_pengiriman::all();
+        $kc = Auth::user()->roles->first()->display_name;
+    	$pengiriman = Pengiriman::all()->map(function($item, $key) use($kc){
+            $item->kc_tujuan = $item->tujuan->first()->nama_kantor;
+            return $item;
+        })->where('kc_tujuan', $kc);
         return view('pengiriman.daftar',compact('pengiriman'));
     }
     
@@ -171,6 +186,14 @@ class PengirimanControll extends Controller
         $dp = Pengiriman::find($id);
         $dp->status = 'Sudah Sampai';
         $dp->save();
+
+        $track = new Tracking;
+        $track->resi    = $dp->resi;
+        $track->asal_kc = $dp->asal_kc;
+        $track->tujuan  = $dp->tujuan->first()->nama_kantor;
+        $track->status  = 'Sudah Sampai';
+        $track->save();
+
         return back();
     }
     public function ambil($id)
@@ -178,6 +201,14 @@ class PengirimanControll extends Controller
         $dp = Pengiriman::find($id);
         $dp->status = 'Telah Diterima';
         $dp->save();
+
+        $track = new Tracking;
+        $track->resi    = $dp->resi;
+        $track->asal_kc = $dp->asal_kc;
+        $track->tujuan  = $dp->tujuan->first()->nama_kantor;
+        $track->status  = 'Telah Diterima';
+        $track->save();
+        
         return back();
     }
      public function delete($id)

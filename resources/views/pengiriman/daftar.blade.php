@@ -36,7 +36,7 @@
                   <td>{{ $mp->resi }}</td>
                   <td>{{ $mp->nama_pengirim }}</td>
                   <td>{{ $mp->nama_penerima }}</td>
-                  <td>{{ $mp->nama_kantor }}</td>
+                  <td>{{ $mp->tujuan->first()->nama_kantor }}</td>
                   <td>{{ $mp->status }}</td>
                   <td>
                     <a href={{ url("pengiriman/{$mp->id}/detail") }}  class="btn btn-xs btn-success">Detail</a>

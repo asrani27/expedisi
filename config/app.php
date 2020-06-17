@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,6 +232,7 @@ return [
         'Laratrust'   => Laratrust\LaratrustFacade::class,
         'PDF'  => Barryvdh\DomPDF\Facade::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         
 
     ],

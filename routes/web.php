@@ -12,12 +12,18 @@
 */
 
 Route::get('/', function () {
+    return view('logistic');
+});
+
+Route::get('/adminlogin', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/tracking', 'TrackingControll@tracking');
 
 Route::get('/barang', 'BarangControll@index');
 Route::get('/barang/create', 'BarangControll@create');
