@@ -165,10 +165,14 @@ class PengirimanControll extends Controller
     public function daftarpengiriman()
     {
         $kc = Auth::user()->roles->first()->display_name;
-    	$pengiriman = Pengiriman::all()->map(function($item, $key) use($kc){
-            $item->kc_tujuan = $item->tujuan->first()->nama_kantor;
-            return $item;
-        })->where('kc_tujuan', $kc);
+        if($kc == 'Admin'){
+            $pengiriman = Pengiriman::all();
+        }else{
+            $pengiriman = Pengiriman::all()->map(function($item, $key) use($kc){
+                $item->kc_tujuan = $item->tujuan->first()->nama_kantor;
+                return $item;
+            })->where('kc_tujuan', $kc);
+        }
         return view('pengiriman.daftar',compact('pengiriman'));
     }
     
