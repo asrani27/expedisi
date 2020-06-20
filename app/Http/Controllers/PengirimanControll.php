@@ -218,6 +218,11 @@ class PengirimanControll extends Controller
      public function delete($id)
     {
         $jab = Pengiriman::find($id);
+        $datatrack = Tracking::where('resi', $jab->resi)->get();
+        foreach($datatrack as $item)
+        {
+            $item->delete();
+        }
         $jab->delete();
 
          return redirect('/pengiriman/daftar')->with('response','Berhasil Di Hapus');
