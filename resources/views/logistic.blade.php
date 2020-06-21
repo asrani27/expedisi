@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Transportation HTML-5 Template </title>
+    <title>CV. AEXPRESS </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -117,7 +117,7 @@
                         </div>
                         <div class="info-caption">
                             <p>Hubungi kami</p>
-                            <span>+ (62)878-5678-8990</span>
+                            <span>0812-9896-8142</span>
                         </div>
                     </div>
                 </div>

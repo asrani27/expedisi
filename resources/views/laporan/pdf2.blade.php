@@ -19,8 +19,8 @@
 				<tr>
 					<td width=100></td>
 					<td align=center class="judul"><b><font size="5">
-						CV.AMEXPRESS<br /></font></b>
-					
+						<img src="/logistic/assets/img/logo/loder.jpg">CV.AMEXPRESS<br /></font></b>
+						Jl. Barito Hilir No.5, Telaga Biru, Kec. Banjarmasin Bar., Kota Banjarmasin, Kalimantan Selatan 70129
 					</td>
 					<td width=100></td>
 				</tr>

@@ -115,6 +115,7 @@ class PengirimanControll extends Controller
         $track->asal_kc = $request->asal_kc;
         $track->tujuan  = Kantor::find($request->tujuan_id)->nama_kantor;
         $track->status  = 'Dalam Pengiriman';
+        $track->created_at = \Carbon\Carbon::createFromFormat('d/m/Y',$request->tgl)->format('Y-m-d');
         $track->save();
        }
         return redirect('/pengiriman/resi/'.$request->resi);
