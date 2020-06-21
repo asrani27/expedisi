@@ -39,7 +39,7 @@
 			  <tr>
               <th class="tg-3wr7">No</th>
               <th class="tg-3wr7">Tanggal</th>
-              <th class="tg-3wr7">Nama Pengirim</th>
+              <th class="tg-3wr7">Nama Penerima</th>
               <th class="tg-3wr7">Alamat</th>
               <th class="tg-3wr7">Telp</th>
               <th class="tg-3wr7">Asal KC</th>
