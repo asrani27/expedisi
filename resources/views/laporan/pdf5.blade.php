@@ -51,9 +51,9 @@
                 <tr>
                   <td>{{ $no++ }}</td>
                   <td>{{ $mp->created_at }}</td>
-                  <td>{{ $mp->nama_pengirim }}</td>
-                  <td>{{ $mp->alamat_pengirim }}</td>
-                  <td>{{ $mp->telp_pengirim }}</td>
+                  <td>{{ $mp->nama_penerima }}</td>
+                  <td>{{ $mp->alamat_penerima }}</td>
+                  <td>{{ $mp->telp_penerima }}</td>
                   <td>{{ $mp->asal_kc }}</td>
                   <td>{{ $mp->nama_kantor }}</td>
                 </tr>
