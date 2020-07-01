@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/demopegawai', 'HomeController@pegawai');
+
 Route::post('/tracking', 'TrackingControll@tracking');
 
 Route::get('/barang', 'BarangControll@index');

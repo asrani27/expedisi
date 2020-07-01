@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use Carbon\Carbon;
+use App\Demopegawai;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -28,5 +29,11 @@ class HomeController extends Controller
     {
         return view('home');
         
+    }
+
+    public function pegawai()
+    {
+        $data = Demopegawai::all();
+        return view('pegawai');
     }
 }
