@@ -7,15 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/demopegawai/add">tambah Pegawai</a>
-    <a href="/demopegawai/cetak">Cetak Pegawai</a>
     <table border=1>
         <tr>
             <th>NIP</th>
             <th>Nama</th>
             <th>Jabatan</th>
             <th>Golongan</th>
-            <th>Aksi</th>
+            
         </tr>
         @foreach ($data as $item)
             <tr>
@@ -23,12 +21,13 @@
                 <td>{{$item->nama_pegawai}}</td>
                 <td>{{$item->jabatan}}</td>
                 <td>{{$item->golongan}}</td>
-                <td>
-                <a href="/demopegawai/edit/{{$item->id}}">Edit</a> |
-                <a href="/demopegawai/delete/{{$item->id}}">Delete</a>
-                </td>
+            
             </tr>
         @endforeach
     </table>
+    
+		<script>
+			window.print();
+		</script>
 </body>
 </html>

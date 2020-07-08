@@ -11,6 +11,16 @@
 |
 */
 
+
+Route::get('/demopegawai', 'HomeController@pegawai');
+Route::get('/demopegawai/add', 'HomeController@add');
+Route::get('/demopegawai/edit/{id}', 'HomeController@edit');
+Route::post('/demopegawai/add', 'HomeController@simpan');
+Route::post('/demopegawai/edit/{id}', 'HomeController@update');
+Route::get('/demopegawai/delete/{id}', 'HomeController@delete');
+Route::get('/demopegawai/cetak', 'HomeController@cetak');
+
+
 Route::get('/', function () {
     return view('logistic');
 });
@@ -23,7 +33,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/demopegawai', 'HomeController@pegawai');
 
 Route::post('/tracking', 'TrackingControll@tracking');
 
