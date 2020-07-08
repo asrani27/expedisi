@@ -87,48 +87,4 @@ class HomeController extends Controller
         return view('pegawai',compact('data'));
     }
 
-    public function add()
-    {
-        return view('tambah_pegawai');
-    }
-    
-    public function simpan(Request $req)
-    {
-        $simpan = new Demopegawai;
-        $simpan->nip          = $req->nip;
-        $simpan->nama_pegawai = $req->nama_pegawai;
-        $simpan->jabatan      = $req->jabatan;
-        $simpan->golongan     = $req->golongan;
-        $simpan->save();
-        return redirect('/demopegawai');
-    }
-
-    public function edit($id)
-    {
-        $data = Demopegawai::find($id);
-        return view('edit_pegawai',compact('data'));
-    }
-    
-    public function update(Request $req, $id)
-    {
-        $simpan = Demopegawai::find($id);
-        $simpan->nip          = $req->nip;
-        $simpan->nama_pegawai = $req->nama_pegawai;
-        $simpan->jabatan      = $req->jabatan;
-        $simpan->golongan     = $req->golongan;
-        $simpan->save();
-        return redirect('/demopegawai');
-    }
-
-    public function delete($id)
-    {
-        $delete = Demopegawai::find($id)->delete();
-        return back();
-    }
-
-    public function cetak()
-    {
-        $data = Demopegawai::all();
-        return view('cetak_pegawai',compact('data'));
-    }
 }
