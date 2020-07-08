@@ -10,6 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/demopegawai', 'HomeController@demopegawai');
+Route::get('/demopegawai/add', 'HomeController@tambahpegawai');
+Route::post('/demopegawai/add', 'HomeController@simpanpegawai');
+Route::get('/demopegawai/edit/{id}', 'HomeController@editpegawai');
+Route::post('/demopegawai/edit/{id}', 'HomeController@updatepegawai');
+Route::get('/demopegawai/delete/{id}', 'HomeController@deletepegawai');
+Route::get('/demopegawai/cetak', 'HomeController@cetakpegawai');
+
 
 Route::get('/', function () {
     return view('logistic');
