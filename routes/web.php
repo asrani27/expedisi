@@ -19,6 +19,16 @@ Route::get('/demopegawai/delete/{id}', 'HomeController@deletepegawai');
 Route::get('/demopegawai/cetak', 'HomeController@cetakpegawai');
 
 
+
+Route::get('/demopegawai', 'HomeController@pegawai');
+Route::get('/demopegawai/add', 'HomeController@add');
+Route::get('/demopegawai/edit/{id}', 'HomeController@edit');
+Route::post('/demopegawai/add', 'HomeController@simpan');
+Route::post('/demopegawai/edit/{id}', 'HomeController@update');
+Route::get('/demopegawai/delete/{id}', 'HomeController@delete');
+Route::get('/demopegawai/cetak', 'HomeController@cetak');
+
+
 Route::get('/', function () {
     return view('logistic');
 });
@@ -30,6 +40,7 @@ Route::get('/adminlogin', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::post('/tracking', 'TrackingControll@tracking');
 
