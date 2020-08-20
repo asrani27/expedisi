@@ -53,8 +53,11 @@ class PengirimanControll extends Controller
         $semuatujuan = Kantor::all();
         $tujuan = Kantor::where('nama_kantor', '!=', $kc)->get();
         //dd($tujuan);
-        $re = count(Pengiriman::all());
-        $no_random = $re+125100001;
+        if(Pengiriman::first() == null){
+            $no_random = 125100001;
+        }else{
+            $no_random = Pengiriman::orderBy('id', 'desc')->first()->resi + 1;
+        }
         return view('pengiriman.kirim',compact('barang','tujuan','no_random','semuatujuan'));
     }
 
