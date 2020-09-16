@@ -8,4 +8,8 @@ class Petugas extends Model
 {
     protected $table = 'petugas';
 
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class, 'jabatan_id');
+    }
 }

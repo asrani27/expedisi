@@ -33,7 +33,7 @@
                   <td>{{ $no++ }}</td>
                   <td>{{ $mp->nama }}</td>
                   <td>{{ $mp->alamat }}</td>
-                  <td>{{ $mp->nama_jabatan }}</td>       
+                  <td>{{ $mp->jabatan->nama_jabatan }}</td>       
                   <td>{{ $mp->telp }}</td>           
                   <td>{{ $mp->kantor }}</td>
                   <td>
